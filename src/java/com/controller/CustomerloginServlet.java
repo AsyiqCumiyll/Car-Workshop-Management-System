@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/CustomerloginServlet")
 public class CustomerloginServlet extends HttpServlet {
 
-    private static final String SALT = "your_unique_salt"; // Replace with a strong, randomly generated salt
+    private static final String SALT = "your_unique_salt"; // Replace with a secure, randomly generated salt
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
@@ -27,7 +27,7 @@ public class CustomerloginServlet extends HttpServlet {
         // Hash the password with salt
         String hashedPassword = hashPassword(password, SALT);
 
-        String query = "SELECT * FROM users WHERE TRIM(name) = ? AND TRIM (password) = ?";
+        String query = "SELECT * FROM users WHERE TRIM(name) = ? AND TRIM(password) = ?";
 
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -38,7 +38,7 @@ public class CustomerloginServlet extends HttpServlet {
 
             if (connection == null || connection.isClosed()) {
                 System.out.println("Database connection failed!");
-                response.sendRedirect("CustomerLoginPage.jsp?message=db_error");
+                response.sendRedirect(request.getContextPath() + "/CustomerLoginPage.jsp?message=db_error");
                 return;
             }
 
@@ -50,20 +50,20 @@ public class CustomerloginServlet extends HttpServlet {
             if (resultSet.next()) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-                response.sendRedirect("HomepageCustomer.jsp");
+                response.sendRedirect(request.getContextPath() + "/HomepageCustomer.jsp");
             } else {
                 System.out.println("Invalid login attempt for username: " + username);
-                response.sendRedirect("CustomerLoginPage.jsp?message=invalid_credentials");
+                response.sendRedirect(request.getContextPath() + "/CustomerLoginPage.jsp?message=invalid_credentials");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("CustomerLoginPage.jsp?message=error");
+            response.sendRedirect(request.getContextPath() + "/CustomerLoginPage.jsp?message=error");
         }
     }
 
     private String hashPassword(String password, String salt) {
         try {
-            MessageDigest md = MessageDigest.getInstance("SHA-256"); // Use a strong hashing algorithm
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
             md.update((salt + password).getBytes());
             byte[] hashedBytes = md.digest();
             StringBuilder sb = new StringBuilder();
@@ -73,7 +73,7 @@ public class CustomerloginServlet extends HttpServlet {
             return sb.toString();
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
-            return null; // Handle the exception appropriately
+            return null;
         }
     }
 }

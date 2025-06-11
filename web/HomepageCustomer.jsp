@@ -102,35 +102,52 @@
 <body>
     <div class="welcome">
         <h1>Car Workshop Management System</h1>
-        
     </div>
 
     <nav>
         <ul class="nav">
-           
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
-            <li><a href="Inventory.jsp">Maintainance</a></li>
+            <li><a href="Inventory.jsp">Maintenance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+            <li><a href="Register.jsp">Register Users</a></li>
         </ul>
     </nav>
 
     <div class="container">
+        <h2>Quick Access</h2>
         <% 
-            String[] links = { "Contact.jsp", "Booking_Appoiment.jsp", "Maintainance.jsp","PaymentBill.jsp"};
-            String[] labels = { "Contact", "Booking", "Maintainance", "payment"};
-            for(int i = 0; i < links.length; i++) {
+            String[] links = { 
+                "Contact.jsp", 
+                "Booking_Appoiment.jsp", 
+                "ManageBooking.jsp", 
+                "ManageRegister.jsp", 
+                "Maintenance.jsp", 
+                "PaymentBill.jsp", 
+                "Inventory_Sparepart.jsp"
+            };
+            String[] labels = { 
+                "Contact", 
+                "Booking", 
+                "Manage Booking", 
+                "Manage Register", 
+                "Maintenance", 
+                "Payment", 
+                "Inventory"
+            };
+
+            for (int i = 0; i < links.length; i++) {
         %>
-            <a href="<%= links[i] %>"><%= labels[i] %></a>
+            <a href="<%= links[i] %>" style="display: inline-block; margin: 8px 10px; font-weight: bold;"><%= labels[i] %></a><br>
         <% } %>
     </div>
 
     <hr>
 
-     <footer>
+    <footer>
         <div class="container p-4">
             <div class="row">
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+                <div class="col-lg-4 col-md-6 mb-4">
                     <h5>Contact Information</h5>
                     <ul class="list-unstyled">
                         <li>Johor Bahru</li>
@@ -138,18 +155,21 @@
                         <li>Alangtyre@gmail.com</li>
                     </ul>
                 </div>
-                <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+
+                <div class="col-lg-4 col-md-6 mb-4">
                     <h5>Follow Us</h5>
                     <a href="https://www.facebook.com/" target="_blank">Facebook</a><br>
                     <a href="https://www.tiktok.com/" target="_blank">TikTok</a><br>
                     <a href="https://www.instagram.com/" target="_blank">Instagram</a>
                 </div>
-                <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
+
+                <div class="col-lg-4 col-md-12 mb-4">
                     <h5>About Us</h5>
-                    <p>© 2024 Car Workshop Management System. All rights reserved.</p>
+                    <p>We provide the best car maintenance and repair services in Johor. All rights reserved.</p>
                 </div>
             </div>
         </div>
+
         <div class="text-center p-3">
             © 2024 Car Workshop Management System
         </div>

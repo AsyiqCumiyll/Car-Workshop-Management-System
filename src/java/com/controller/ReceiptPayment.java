@@ -57,7 +57,8 @@ public class ReceiptPayment extends HttpServlet {
             e.printStackTrace();
         }
 
-        // Hantar ID ke ViewReceipt.jsp
-        response.sendRedirect("ViewReceipt.jsp?id=" + receiptId);
+        // Gunakan context path dalam redirect
+        String contextPath = request.getContextPath();
+        response.sendRedirect(contextPath + "/ViewReceipt.jsp?id=" + receiptId);
     }
 }

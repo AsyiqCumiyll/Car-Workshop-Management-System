@@ -19,7 +19,7 @@ public class AdminloginServlet extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
 
-        String query = "SELECT * FROM users WHERE name = ? AND  password = ?";
+        String query = "SELECT * FROM users WHERE name = ? AND password = ?";
 
         try (Connection connection = DBConnection.getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
@@ -29,7 +29,7 @@ public class AdminloginServlet extends HttpServlet {
 
             if (connection == null || connection.isClosed()) {
                 System.out.println("Database connection failed!");
-                response.sendRedirect("AdminLogin.jsp?message=db_error");
+                response.sendRedirect(request.getContextPath() + "/AdminLogin.jsp?message=db_error");
                 return;
             }
 
@@ -41,14 +41,14 @@ public class AdminloginServlet extends HttpServlet {
             if (resultSet.next()) {
                 HttpSession session = request.getSession();
                 session.setAttribute("username", username);
-                response.sendRedirect("Homepage.jsp");
+                response.sendRedirect(request.getContextPath() + "/Homepage.jsp");
             } else {
                 System.out.println("Invalid login attempt for username: " + username);
-                response.sendRedirect("AdminLogin.jsp?message=invalidhere");
+                response.sendRedirect(request.getContextPath() + "/AdminLogin.jsp?message=invalidhere");
             }
         } catch (SQLException e) {
             e.printStackTrace();
-            response.sendRedirect("AdminLogin.jsp?message=error");
+            response.sendRedirect(request.getContextPath() + "/AdminLogin.jsp?message=error");
         }
     }
 }

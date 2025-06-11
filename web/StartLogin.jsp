@@ -108,23 +108,22 @@
 <body>
     <div class="welcome">
         <h1>Car Workshop Management System</h1>
-        
     </div>
 
-
-
     <div class="container">
-        <% 
+        <%
             String[] links = {"AdminLogin.jsp", "CustomerLoginPage.jsp"};
             String[] labels = {"Staff", "Customer"};
-            for(int i = 0; i < links.length; i++) {
+
+            for (int i = 0; i < links.length; i++) {
         %>
-            <a href="<%= links[i] %>"><%= labels[i] %></a>
-        <% } %>
+            <a href="<%= request.getContextPath() %>/<%= links[i] %>"><%= labels[i] %></a><br><br>
+        <%
+            }
+        %>
     </div>
 
     <hr>
-
-   
 </body>
 </html>
+

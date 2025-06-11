@@ -96,7 +96,6 @@
 <body>
     <div class="receipt-box">
         <h2>Resit Servis Kereta</h2>
-        
 
         <%
             String id = request.getParameter("id");
@@ -121,9 +120,9 @@
                     <p><strong>Tarikh:</strong> <%= rs.getTimestamp("receipt_date") %></p>
                     <hr>
                     <p><%= rs.getString("receipt_text").replaceAll("\n", "<br>") %></p>
-                    
+
                     <%
-                        // Retrieve phone number and receipt text for WhatsApp link
+                        // WhatsApp integration
                         String phone = rs.getString("phone_number");
                         String text = rs.getString("receipt_text");
                         String encodedText = java.net.URLEncoder.encode(text, "UTF-8");
@@ -137,12 +136,11 @@
                            📤 Hantar ke WhatsApp
                         </a>
                     </div>
-
-                <%
+        <%
                 } else {
-                %>
+        %>
                     <p>Resit tidak dijumpai.</p>
-                <%
+        <%
                 }
             } catch (Exception e) {
                 out.println("Ralat: " + e.getMessage());

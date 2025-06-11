@@ -168,15 +168,15 @@ button:hover {
 
     <nav>
         <ul class="nav">
-            <li><a href="Homepage.jsp">Home</a></li>
-            <li><a href="Booking_Appoiment.jsp">Booking</a></li>
-            <li><a href="Contact.jsp">Contact</a></li>
-            <li><a href="Inventory.jsp">Maintenance</a></li>
-            <li><a href="StartLogin.jsp">Logout</a></li>
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintenance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
         </ul>
     </nav>
+
     <%
-        // Database connection parameters
         String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
         String DB_USERNAME = "root";
         String DB_PASSWORD = "";
@@ -202,13 +202,28 @@ button:hover {
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
-                out.println("<script>alert('Booking updated successfully!'); window.location='ManageBooking.jsp';</script>");
+    %>
+                <script>
+                    alert('Booking updated successfully!');
+                    window.location = '<%= request.getContextPath() %>/ManageBooking.jsp';
+                </script>
+    <%
             } else {
-                out.println("<script>alert('Error: Booking not found!'); window.location='ManageBooking.jsp';</script>");
+    %>
+                <script>
+                    alert('Error: Booking not found!');
+                    window.location = '<%= request.getContextPath() %>/ManageBooking.jsp';
+                </script>
+    <%
             }
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<script>alert('Error: " + e.getMessage() + "'); window.location='ManageBooking.jsp';</script>");
+    %>
+            <script>
+                alert('Error: <%= e.getMessage().replace("'", "\\'") %>');
+                window.location = '<%= request.getContextPath() %>/ManageBooking.jsp';
+            </script>
+    <%
         }
     %>
 </body>

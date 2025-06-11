@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package com.controller;
 
 import com.util.DBConnection;
@@ -27,6 +23,9 @@ public class RegisterServlet extends HttpServlet {
         String email = request.getParameter("email"); // Case-sensitive fix (Email -> email)
         String role = request.getParameter("role");
 
+        // Get the context path
+        String contextPath = request.getContextPath();
+
         // SQL query to insert user data into the database
         String query = "INSERT INTO users (name, password, phone, email, role) VALUES (?, ?, ?, ?, ?)";
 
@@ -46,21 +45,21 @@ public class RegisterServlet extends HttpServlet {
             if (result > 0) {
                 // Registration successful
                 if ("admin".equalsIgnoreCase(role)) {
-                    response.sendRedirect("AdminLogin.jsp?message=registration_success");
+                    response.sendRedirect(contextPath + "/AdminLogin.jsp?message=registration_success");
                 } else if ("customer".equalsIgnoreCase(role)) {
-                    response.sendRedirect("AdminLogin.jsp?message=registration_success");
+                    response.sendRedirect(contextPath + "/AdminLogin.jsp?message=registration_success");
                 } else {
-                    // If role is unrecognized, redirect to a generic login or error page
-                    response.sendRedirect("error.jsp?message=invalid_role");
+                    response.sendRedirect(contextPath + "/error.jsp?message=invalid_role");
                 }
             } else {
                 // Registration failed
-                response.sendRedirect("Register.jsp?message=registration_failed");
+                response.sendRedirect(contextPath + "/Register.jsp?message=registration_failed");
             }
         } catch (SQLException e) {
             e.printStackTrace();
             // Handle database errors
-            response.sendRedirect("Register.jsp?message=error");
+            response.sendRedirect(contextPath + "/Register.jsp?message=error");
         }
     }
 }
+

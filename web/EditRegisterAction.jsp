@@ -161,6 +161,14 @@ button:hover {
     text-decoration: none;
 }
 </style>
+<%@ page import="java.sql.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Register Action</title>
+</head>
 <body>
     <div class="welcome">
         <h1>Car Workshop Management System</h1>
@@ -175,18 +183,27 @@ button:hover {
             <li><a href="StartLogin.jsp">Logout</a></li>
         </ul>
     </nav>
+
     <%
-        // Database connection parameters
+        // DB connection setup
         String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
         String DB_USERNAME = "root";
         String DB_PASSWORD = "";
 
+        // Retrieve parameters
         String id = request.getParameter("id");
         String name = request.getParameter("name");
         String password = request.getParameter("password");
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
         String role = request.getParameter("role");
+
+        // Validate inputs
+        if (id == null || name == null || password == null || phone == null || email == null || role == null ||
+            id.isEmpty() || name.isEmpty() || password.isEmpty() || phone.isEmpty() || email.isEmpty() || role.isEmpty()) {
+            out.println("<script>alert('Error: All fields are required!'); window.location='ManageRegister.jsp';</script>");
+            return;
+        }
 
         try (Connection conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
              PreparedStatement stmt = conn.prepareStatement(
@@ -204,11 +221,12 @@ button:hover {
             if (rowsAffected > 0) {
                 out.println("<script>alert('Register updated successfully!'); window.location='ManageRegister.jsp';</script>");
             } else {
-                out.println("<script>alert('Error: Booking not found!'); window.location='ManageRegister.jsp';</script>");
+                out.println("<script>alert('Error: Register not found!'); window.location='ManageRegister.jsp';</script>");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<script>alert('Error: " + e.getMessage() + "'); window.location='ManageRegister.jsp';</script>");
+            String safeMessage = e.getMessage().replace("'", "\\'").replace("\"", "\\\"");
+            out.println("<script>alert('Error: " + safeMessage + "'); window.location='ManageRegister.jsp';</script>");
         }
     %>
 </body>

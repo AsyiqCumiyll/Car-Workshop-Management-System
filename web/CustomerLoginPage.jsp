@@ -90,30 +90,32 @@
                 text-decoration: none;
             }
         </style>
-    </head>
-    <body>
-        <div class="welcome">
-            <h1>car Workshop Management System</h1>
+ </head>
+<body>
+    <div class="welcome">
+        <h1>Car Workshop Management System</h1>
+    </div>
+
+    <div class="container">
+        <div class="note-form">
+            <form action="${pageContext.request.contextPath}/CustomerloginServlet" method="POST">
+                <h1>Customer Login Page</h1>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="**" required>
+
+                <button type="submit" style="width: 100%;">Login</button>
+
+                <a href="${pageContext.request.contextPath}/Register.jsp" style="width: 100%;">
+                    <button type="button" style="width: 100%;">Register</button>
+                </a>
+                <a href="${pageContext.request.contextPath}/StartLogin.jsp" style="width: 100%;">
+                    <button type="button" style="width: 100%;">Back</button>
+                </a>
+            </form>
         </div>
-
-
-
-        <div class="container">
-            <div class="note-form">
-                <form action="CustomerloginServlet" method="POST">
-                    <h1>customer Login Page</h1>
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter username" required>
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="**" required>
-
-                    <button type="submit" style="width: 100%;">Login</button>
-
-
-                    <a href="Register.jsp" style="width: 100%;">
-                        <button type="button" style="width: 100%;">Register</button>
-                    </a>
-                    <a href="StartLogin.jsp" style="width: 100%;">
-                        <button type="button" style="width: 100%;">Back</button>
-
-                    </a>
+    </div>
+</body>
+</html>

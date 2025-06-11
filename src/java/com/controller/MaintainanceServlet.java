@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.controller;
 
 import javax.servlet.ServletException;
@@ -24,6 +20,8 @@ public class MaintainanceServlet extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
 
+        String contextPath = request.getContextPath(); // Get context path
+
         out.println("<html><head><title>Maintenance Confirmation</title>");
         out.println("<style>");
         out.println("body { background: #f4f4f4; font-family: Arial; padding: 30px; }");
@@ -38,7 +36,7 @@ public class MaintainanceServlet extends HttpServlet {
         out.println("<p><strong>Car Type:</strong> " + carType + "</p>");
         out.println("<p><strong>Damage Description:</strong> " + damage + "</p>");
         out.println("<p><strong>Repair Status:</strong> " + repairStatus + "</p>");
-        out.println("<a href='MaintainanceCar.jsp'>← Back to Maintenance Form</a>");
+        out.println("<a href='" + contextPath + "/MaintainanceCar.jsp'>← Back to Maintenance Form</a>");
         out.println("</div>");
 
         out.println("</body></html>");

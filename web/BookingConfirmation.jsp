@@ -139,11 +139,11 @@
 
     <nav>
         <ul class="nav">
-            <li><a href="Homepage.jsp">Home</a></li>
-            <li><a href="Booking_Appoiment.jsp">Booking</a></li>
-            <li><a href="Contact.jsp">Contact</a></li>
-            <li><a href="Inventory.jsp">Maintenance</a></li>
-            <li><a href="StartLogin.jsp">Logout</a></li>
+            <li><a href="${pageContext.request.contextPath}/Homepage.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="${pageContext.request.contextPath}/Contact.jsp">Contact</a></li>
+            <li><a href="${pageContext.request.contextPath}/Inventory.jsp">Maintenance</a></li>
+            <li><a href="${pageContext.request.contextPath}/StartLogin.jsp">Logout</a></li>
         </ul>
     </nav>
 
@@ -161,9 +161,11 @@
             <label>Service Type:</label>
             <p><%= (String)request.getAttribute("serviceType") %></p>
         </div>
+
         <div style="text-align: center;">
-    <a href="Booking_Appoiment.jsp" class="styled-button">Make Another Booking</a>
-</div>
+            <a href="${pageContext.request.contextPath}/Booking_Appoiment.jsp" class="styled-button">Make Another Booking</a>
+        </div>
+    </div>
 
     <footer>
         <div class="container p-4">

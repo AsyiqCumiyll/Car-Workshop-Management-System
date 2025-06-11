@@ -100,14 +100,14 @@
 
 <nav>
     <ul class="nav">
-        <li><a href="index.jsp">Home</a></li>
-        <li><a href="booking.jsp">Booking</a></li>
-        <li><a href="MaintainanceCar.jsp">Maintenance</a></li>
+        <li><a href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
+        <li><a href="<%= request.getContextPath() %>/booking.jsp">Booking</a></li>
+        <li><a href="<%= request.getContextPath() %>/MaintainanceCar.jsp">Maintenance</a></li>
     </ul>
 </nav>
 
 <div class="container">
-    <form class="note-form" action="MaintainanceServlet" method="post">
+    <form class="note-form" action="<%= request.getContextPath() %>/MaintainanceServlet" method="post">
         <label>Car Plate Number</label>
         <input type="text" name="plateNumber" placeholder="eg. VDY1234" required>
 

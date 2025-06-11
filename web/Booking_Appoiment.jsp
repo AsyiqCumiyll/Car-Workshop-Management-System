@@ -120,25 +120,25 @@
 
     <nav>
         <ul class="nav">
-            <li><a href="Homepage.jsp">Home</a></li>
-            <li><a href="Booking_Appoiment.jsp">Booking</a></li>
-            <li><a href="Contact.jsp">Contact</a></li>
-            <li><a href="Inventory.jsp">Maintenance</a></li>
-            <li><a href="StartLogin.jsp">Logout</a></li>
+            <li><a href="${pageContext.request.contextPath}/Homepage.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="${pageContext.request.contextPath}/Contact.jsp">Contact</a></li>
+            <li><a href="${pageContext.request.contextPath}/Inventory.jsp">Maintenance</a></li>
+            <li><a href="${pageContext.request.contextPath}/StartLogin.jsp">Logout</a></li>
         </ul>
     </nav>
 
     <div class="container">
         <div class="note-form">
-            <form action="BookingServlet" method="post">
+            <form action="${pageContext.request.contextPath}/BookingServlet" method="post">
                 <label for="carOwnerName">Car Owner Name:</label>
                 <input type="text" id="carOwnerName" name="carOwnerName" placeholder="Enter car owner name" required>
                 
                 <label for="carPlateNumber">Car Plate Number:</label>
                 <input type="text" id="carPlateNumber" name="carPlateNumber" placeholder="Enter car plate number" required>
                 
-                <label for="phone">phone:</label>
-                <input type="text" id ="phone" name="phone" placeholder="Enter contact number" required>
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter contact number" required>
                 
                 <label for="carModel">Car Model:</label>
                 <input type="text" id="carModel" name="carModel" placeholder="Enter car model" required>

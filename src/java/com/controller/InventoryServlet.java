@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
 package com.controller;
 
 import com.util.DBConnection;
@@ -33,7 +28,7 @@ public class InventoryServlet extends HttpServlet {
              PreparedStatement statement = connection.prepareStatement(insertQuery)) {
 
             if (connection == null || connection.isClosed()) {
-                response.sendRedirect("Inventory_Sparepart.jsp?message=db_error");
+                response.sendRedirect(request.getContextPath() + "/Inventory_Sparepart.jsp?message=db_error");
                 return;
             }
 
@@ -47,16 +42,16 @@ public class InventoryServlet extends HttpServlet {
 
             if (rowsAffected > 0) {
                 request.setAttribute("success", "Data successfully added.");
-                request.getRequestDispatcher("Manage_Inventory.jsp").forward(request, response);
+                request.getRequestDispatcher("/Manage_Inventory.jsp").forward(request, response);
             } else {
                 request.setAttribute("error", "Failed to insert data.");
-                request.getRequestDispatcher("Inventory_Sparepart.jsp").forward(request, response);
+                request.getRequestDispatcher("/Inventory_Sparepart.jsp").forward(request, response);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
             request.setAttribute("error", "Database error: " + e.getMessage());
-            request.getRequestDispatcher("Inventory_Sparepart.jsp").forward(request, response);
+            request.getRequestDispatcher("/Inventory_Sparepart.jsp").forward(request, response);
         }
     }
 }

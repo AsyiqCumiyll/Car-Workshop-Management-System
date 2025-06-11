@@ -19,11 +19,14 @@
         String DB_USERNAME = "root";
         String DB_PASSWORD = "";
 
+        // Get the context path
+        String contextPath = request.getContextPath();
+
         // Get the booking ID from the request parameter
         String bookingId = request.getParameter("booking_id");
 
         if (bookingId == null || bookingId.isEmpty()) {
-            out.println("<script>alert('Error: Booking ID is required!'); window.location='ManageBooking.jsp';</script>");
+            out.println("<script>alert('Error: Booking ID is required!'); window.location='" + contextPath + "/ManageBooking.jsp';</script>");
             return;
         }
 
@@ -35,13 +38,13 @@
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
-                out.println("<script>alert('Booking deleted successfully!'); window.location='ManageBooking.jsp';</script>");
+                out.println("<script>alert('Booking deleted successfully!'); window.location='" + contextPath + "/ManageBooking.jsp';</script>");
             } else {
-                out.println("<script>alert('Error: Booking not found!'); window.location='ManageBooking.jsp';</script>");
+                out.println("<script>alert('Error: Booking not found!'); window.location='" + contextPath + "/ManageBooking.jsp';</script>");
             }
         } catch (Exception e) {
             e.printStackTrace();
-            out.println("<script>alert('Error: " + e.getMessage() + "'); window.location='ManageBooking.jsp';</script>");
+            out.println("<script>alert('Error: " + e.getMessage().replace("'", "\\'") + "'); window.location='" + contextPath + "/ManageBooking.jsp';</script>");
         }
     %>
 </body>
