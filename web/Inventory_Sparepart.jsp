@@ -122,34 +122,59 @@
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintenance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+=======
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintenance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
     <div class="container">
         <div class="note-form">
+<<<<<<< HEAD
             <form action="InventoryServlet" method="post">
+=======
+            <form action="<%= request.getContextPath() %>/InventoryServlet" method="post">
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 <label for="part_name">Sparepart Name:</label>
                 <input type="text" id="part_name" name="part_name" placeholder="Enter SparePart name" required>
                 
                 <label for="quantity_in_stock">Quantity:</label>
                 <input type="text" id="quantity_in_stock" name="quantity_in_stock" placeholder="Enter quantity_in_stock" required>
                 
+<<<<<<< HEAD
                 <label for="supplier_id">supplier_id</label>
                 <input type="text" id ="supplier_id" name="supplier_id" placeholder="Enter supplier_id " required>
                 
                 <label for="price">Price:</label>
                 <input type="text" id="price" name="price" placeholder="Enter  price" required>
+=======
+                <label for="supplier_id">Supplier ID:</label>
+                <input type="text" id="supplier_id" name="supplier_id" placeholder="Enter supplier_id" required>
+                
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" placeholder="Enter price" required>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 
                 <label for="part_type">Sparepart Type:</label>
                 <select id="part_type" name="part_type" required>
                     <option value="" disabled selected>Select your part type</option>
+<<<<<<< HEAD
                     <option value="Tyre"> Tyre</option>
                     <option value="Plug"> plug</option>
+=======
+                    <option value="Tyre">Tyre</option>
+                    <option value="Plug">Plug</option>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                     <option value="Engine Oil">Engine Oil</option>
                     <option value="Gearbox Oil">Gearbox Oil</option>
                     <option value="AirCond Gas">Aircond Gas</option>

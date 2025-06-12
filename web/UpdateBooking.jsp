@@ -164,6 +164,7 @@ button:hover {
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
@@ -175,6 +176,19 @@ button:hover {
         <h1>Update Booking</h1>
         <%
             // Database connection parameters
+=======
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintenance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Update Booking</h1>
+        <%
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
             String DB_USERNAME = "root";
             String DB_PASSWORD = "";
@@ -195,12 +209,18 @@ button:hover {
             String serviceType = "";
 
             try {
+<<<<<<< HEAD
                 // Load MySQL JDBC Driver
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 // Establish connection
                 conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
 
                 // Fetch booking details
+=======
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 String query = "SELECT * FROM bookings WHERE booking_id = ?";
                 stmt = conn.prepareStatement(query);
                 stmt.setInt(1, Integer.parseInt(bookingId));
@@ -224,7 +244,12 @@ button:hover {
                 if (conn != null) try { conn.close(); } catch (SQLException ignored) {}
             }
         %>
+<<<<<<< HEAD
         <form action="UpdateBookingAction.jsp" method="post">
+=======
+
+        <form action="<%= request.getContextPath() %>/UpdateBookingAction.jsp" method="post">
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             <input type="hidden" name="booking_id" value="<%= bookingId %>">
 
             <label for="car_owner_name">Car Owner Name</label>
@@ -233,7 +258,11 @@ button:hover {
             <label for="car_plate_number">Car Plate Number</label>
             <input type="text" id="car_plate_number" name="car_plate_number" value="<%= carPlateNumber %>" required>
 
+<<<<<<< HEAD
             <label for="phone">phone</label>
+=======
+            <label for="contact_number">Phone</label>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             <input type="text" id="contact_number" name="contact_number" value="<%= phone %>" required>
 
             <label for="car_model">Car Model</label>

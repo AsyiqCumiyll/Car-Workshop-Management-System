@@ -98,11 +98,19 @@
 <body>
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintainance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+=======
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintainance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
@@ -139,6 +147,7 @@
 
                         while (rs.next()) {
                 %>
+<<<<<<< HEAD
                             <tr>
                                 <td><%= rs.getInt("part_id") %></td>
                                 <td><%= rs.getString("part_name") %></td>
@@ -157,6 +166,26 @@
                                     </form>
                                 </td>
                             </tr>
+=======
+                    <tr>
+                        <td><%= rs.getInt("part_id") %></td>
+                        <td><%= rs.getString("part_name") %></td>
+                        <td><%= rs.getString("quantity_in_stock") %></td>
+                        <td><%= rs.getString("supplier_id") %></td>
+                        <td><%= rs.getString("price") %></td>
+                        <td><%= rs.getString("part_type") %></td>
+                        <td>
+                            <form action="<%= request.getContextPath() %>/UpdateInventory.jsp" method="post" style="display:inline;">
+                                <input type="hidden" name="part_id" value="<%= rs.getInt("part_id") %>">
+                                <button type="submit">Update</button>
+                            </form>
+                            <form action="<%= request.getContextPath() %>/DeleteInventory.jsp" method="post" style="display:inline;">
+                                <input type="hidden" name="part_id" value="<%= rs.getInt("part_id") %>">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 <%
                         }
                     } catch (Exception e) {
@@ -175,4 +204,8 @@
         </table>
     </div>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb

@@ -155,9 +155,24 @@ button:hover {
     text-decoration: none;
 }
 </style>
+<<<<<<< HEAD
 </head>
 <body>
     
+=======
+<%@ page import="java.sql.*" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Register</title>
+</head>
+<body>
+
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
     <div class="welcome">
         <h1>Car Workshop Management System</h1>
     </div>
@@ -171,6 +186,7 @@ button:hover {
             <li><a href="StartLogin.jsp">Logout</a></li>
         </ul>
     </nav>
+<<<<<<< HEAD
     <div class="container">
         <h1>Update Booking</h1>
         <%
@@ -178,10 +194,22 @@ button:hover {
             String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
             String DB_USERNAME = "root";
             String DB_PASSWORD = "";
+=======
+
+    <div class="container">
+        <h1>Update Register</h1>
+
+        <%
+            String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
+            String DB_USERNAME = "root";
+            String DB_PASSWORD = "";
+
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             Connection conn = null;
             PreparedStatement stmt = null;
             ResultSet rs = null;
 
+<<<<<<< HEAD
          
      String id = request.getParameter("id");
             if (id == null) {
@@ -204,6 +232,20 @@ button:hover {
                 // Fetch booking details
                 String query = "SELECT * FROM users WHERE id = ?";
                 stmt = conn.prepareStatement(query);
+=======
+            String id = request.getParameter("id");
+            if (id == null) {
+                out.println("<p>Invalid register ID!</p>");
+                return;
+            }
+
+            String name = "", password = "", phone = "", email = "", role = "";
+
+            try {
+                conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+                String sql = "SELECT * FROM users WHERE id = ?";
+                stmt = conn.prepareStatement(sql);
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 stmt.setInt(1, Integer.parseInt(id));
                 rs = stmt.executeQuery();
 
@@ -225,6 +267,7 @@ button:hover {
                 if (conn != null) try { conn.close(); } catch (SQLException ignored) {}
             }
         %>
+<<<<<<< HEAD
         <form action="EditRegisterAction.jsp" method="post">
             <input type="hidden" name="id" value="<%= id %>">
 
@@ -235,6 +278,19 @@ button:hover {
             <input type="text" id="password" name="password" value="<%= password %>" required>
 
             <label for="phone">phone</label>
+=======
+
+        <form action="EditRegisterAction.jsp" method="post">
+            <input type="hidden" name="id" value="<%= id %>">
+
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="<%= name %>" required>
+
+            <label for="password">Password</label>
+            <input type="text" id="password" name="password" value="<%= password %>" required>
+
+            <label for="phone">Phone</label>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             <input type="text" id="phone" name="phone" value="<%= phone %>" required>
 
             <label for="email">Email</label>
@@ -246,5 +302,9 @@ button:hover {
             <button type="submit">Update Register</button>
         </form>
     </div>
+<<<<<<< HEAD
+=======
+
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
 </body>
 </html>

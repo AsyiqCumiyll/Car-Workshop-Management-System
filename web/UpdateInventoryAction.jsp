@@ -175,11 +175,19 @@ button:hover {
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintenance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+=======
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintenance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
@@ -204,21 +212,35 @@ button:hover {
             stmt.setString(1, part_name);
             stmt.setInt(2, Integer.parseInt(quantity_in_stock));
             stmt.setInt(3, Integer.parseInt(supplier_id));
+<<<<<<< HEAD
             stmt.setBigDecimal(4, new BigDecimal(price));
+=======
+            stmt.setBigDecimal(4, new java.math.BigDecimal(price));
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             stmt.setString(5, part_type);
             stmt.setInt(6, Integer.parseInt(part_id));
 
             int rowsAffected = stmt.executeUpdate();
 
             if (rowsAffected > 0) {
+<<<<<<< HEAD
                 out.println("<script>alert('Part updated successfully!'); window.location='Manage_Inventory.jsp';</script>");
             } else {
                 out.println("<script>alert('Error: Part not found!'); window.location='Manage_Inventory.jsp';</script>");
+=======
+                out.println("<script>alert('Part updated successfully!'); window.location='" + request.getContextPath() + "/Manage_Inventory.jsp';</script>");
+            } else {
+                out.println("<script>alert('Error: Part not found!'); window.location='" + request.getContextPath() + "/Manage_Inventory.jsp';</script>");
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             }
 
         } catch (Exception e) {
             e.printStackTrace();
+<<<<<<< HEAD
             out.println("<script>alert('Error: " + e.getMessage().replace("'", "\\'") + "'); window.location='Manage_Inventory.jsp';</script>");
+=======
+            out.println("<script>alert('Error: " + e.getMessage().replace("'", "\\'") + "'); window.location='" + request.getContextPath() + "/Manage_Inventory.jsp';</script>");
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         }
     %>
 </body>

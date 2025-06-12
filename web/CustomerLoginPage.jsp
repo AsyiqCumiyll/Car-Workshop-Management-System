@@ -90,6 +90,7 @@
                 text-decoration: none;
             }
         </style>
+<<<<<<< HEAD
     </head>
     <body>
         <div class="welcome">
@@ -117,3 +118,34 @@
                         <button type="button" style="width: 100%;">Back</button>
 
                     </a>
+=======
+ </head>
+<body>
+    <div class="welcome">
+        <h1>Car Workshop Management System</h1>
+    </div>
+
+    <div class="container">
+        <div class="note-form">
+            <form action="${pageContext.request.contextPath}/CustomerloginServlet" method="POST">
+                <h1>Customer Login Page</h1>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="**" required>
+
+                <button type="submit" style="width: 100%;">Login</button>
+
+                <a href="${pageContext.request.contextPath}/Register.jsp" style="width: 100%;">
+                    <button type="button" style="width: 100%;">Register</button>
+                </a>
+                <a href="${pageContext.request.contextPath}/StartLogin.jsp" style="width: 100%;">
+                    <button type="button" style="width: 100%;">Back</button>
+                </a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb

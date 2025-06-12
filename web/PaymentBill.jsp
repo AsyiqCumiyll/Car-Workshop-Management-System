@@ -222,18 +222,30 @@ if ("POST".equalsIgnoreCase(request.getMethod())) {
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintenance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+=======
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintenance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
     <div class="form-container">
         <h2>Car Service Receipt</h2>
+<<<<<<< HEAD
         <form method="post">
 
+=======
+        <form method="post" action="<%= request.getContextPath() %>/SendReceiptServlet">
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             <div class="form-group">
                 <label for="plateNumber">No Plat Kereta:</label>
                 <input type="text" id="plateNumber" name="plateNumber" required>

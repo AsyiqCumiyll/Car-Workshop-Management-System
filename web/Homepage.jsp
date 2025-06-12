@@ -102,33 +102,73 @@
 <body>
     <div class="welcome">
         <h1>Car Workshop Management System</h1>
+<<<<<<< HEAD
         
+=======
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
     </div>
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
            
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintainance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
             <li><a href="Register.jsp">RegisterUsers</a></li>
+=======
+            <li><a href="Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="Contact.jsp">Contact</a></li>
+            <li><a href="Inventory.jsp">Maintenance</a></li>
+            <li><a href="StartLogin.jsp">Logout</a></li>
+            <li><a href="Register.jsp">Register Users</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
     <div class="container">
         <% 
+<<<<<<< HEAD
             String[] links = { "Contact.jsp", "Booking_Appoiment.jsp","ManageBooking.jsp","ManageRegister.jsp", "Maintainance.jsp","PaymentBill.jsp","Inventory_Sparepart.jsp"};
             String[] labels = { "Contact", "Booking","ManageBooking","ManageRegister","Maintainance", "payment","Inventory"};
             for(int i = 0; i < links.length; i++) {
         %>
             <a href="<%= links[i] %>"><%= labels[i] %></a>
+=======
+            String[] links = { 
+                "Contact.jsp", 
+                "Booking_Appoiment.jsp", 
+                "ManageBooking.jsp", 
+                "ManageRegister.jsp", 
+                "Maintainance.jsp", 
+                "PaymentBill.jsp", 
+                "Inventory_Sparepart.jsp"
+            };
+            String[] labels = { 
+                "Contact", 
+                "Booking", 
+                "Manage Booking", 
+                "Manage Register", 
+                "Maintenance", 
+                "Payment", 
+                "Inventory"
+            };
+
+            for (int i = 0; i < links.length; i++) {
+        %>
+            <a href="<%= links[i] %>" style="display:block; margin-bottom:8px;"><%= labels[i] %></a>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         <% } %>
     </div>
 
     <hr>
 
+<<<<<<< HEAD
      <footer>
+=======
+    <footer>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         <div class="container p-4">
             <div class="row">
                 <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
@@ -147,7 +187,11 @@
                 </div>
                 <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
                     <h5>About Us</h5>
+<<<<<<< HEAD
                     <p>© 2024 Car Workshop Management System. All rights reserved.</p>
+=======
+                    <p>We provide the best car maintenance and repair service in Johor. © 2024 All rights reserved.</p>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 </div>
             </div>
         </div>
@@ -156,4 +200,8 @@
         </div>
     </footer>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb

@@ -100,14 +100,24 @@
 
 <nav>
     <ul class="nav">
+<<<<<<< HEAD
         <li><a href="index.jsp">Home</a></li>
         <li><a href="booking.jsp">Booking</a></li>
         <li><a href="MaintainanceCar.jsp">Maintenance</a></li>
+=======
+        <li><a href="<%= request.getContextPath() %>/index.jsp">Home</a></li>
+        <li><a href="<%= request.getContextPath() %>/booking.jsp">Booking</a></li>
+        <li><a href="<%= request.getContextPath() %>/MaintainanceCar.jsp">Maintenance</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
     </ul>
 </nav>
 
 <div class="container">
+<<<<<<< HEAD
     <form class="note-form" action="MaintainanceServlet" method="post">
+=======
+    <form class="note-form" action="<%= request.getContextPath() %>/MaintainanceServlet" method="post">
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         <label>Car Plate Number</label>
         <input type="text" name="plateNumber" placeholder="eg. VDY1234" required>
 

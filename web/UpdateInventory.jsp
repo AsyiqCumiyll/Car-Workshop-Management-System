@@ -162,13 +162,17 @@ button:hover {
 </style>
 </head>
 <body>
+<<<<<<< HEAD
     
+=======
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
     <div class="welcome">
         <h1>Car Workshop Management System</h1>
     </div>
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
@@ -180,6 +184,19 @@ button:hover {
         <h1>Update Inventory</h1>
         <%
             // Database connection parameters
+=======
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintenance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Update Inventory</h1>
+        <%
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
             String DB_USERNAME = "root";
             String DB_PASSWORD = "";
@@ -200,6 +217,7 @@ button:hover {
             String part_type = "";
 
             try {
+<<<<<<< HEAD
                 // Load MySQL JDBC Driver
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 // Establish connection
@@ -211,6 +229,15 @@ button:hover {
                     stmt.setInt(1, Integer.parseInt(part_id));
                     rs = stmt.executeQuery();
 
+=======
+                Class.forName("com.mysql.cj.jdbc.Driver");
+                conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+
+                String query = "SELECT * FROM spare_parts WHERE part_id = ?";
+                stmt = conn.prepareStatement(query);
+                stmt.setInt(1, Integer.parseInt(part_id));
+                rs = stmt.executeQuery();
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
 
                 if (rs.next()) {
                     part_name = rs.getString("part_name");
@@ -230,6 +257,7 @@ button:hover {
                 if (conn != null) try { conn.close(); } catch (SQLException ignored) {}
             }
         %>
+<<<<<<< HEAD
         <form action="UpdateInventoryAction.jsp" method="post">
             <input type="hidden" name="part_id" value="<%= part_id %>">
 
@@ -246,6 +274,25 @@ button:hover {
             <input type="text" id="price" name="price" value="<%= price %>" required>
 
             <label for="part_type">part Type</label>
+=======
+
+        <form action="<%= request.getContextPath() %>/UpdateInventoryAction.jsp" method="post">
+            <input type="hidden" name="part_id" value="<%= part_id %>">
+
+            <label for="part_name">Sparepart Name</label>
+            <input type="text" id="part_name" name="part_name" value="<%= part_name %>" required>
+
+            <label for="quantity_in_stock">Quantity in Stock</label>
+            <input type="text" id="quantity_in_stock" name="quantity_in_stock" value="<%= quantity_in_stock %>" required>
+
+            <label for="supplier_id">Supplier ID</label>
+            <input type="text" id="supplier_id" name="supplier_id" value="<%= supplier_id %>" required>
+
+            <label for="price">Price</label>
+            <input type="text" id="price" name="price" value="<%= price %>" required>
+
+            <label for="part_type">Part Type</label>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             <input type="text" id="part_type" name="part_type" value="<%= part_type %>" required>
 
             <button type="submit">Update Inventory</button>

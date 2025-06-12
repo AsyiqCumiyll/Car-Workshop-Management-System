@@ -89,6 +89,7 @@
     </style>
 </head>
 <body>
+<<<<<<< HEAD
      <nav>
         <ul class="nav">
             <li><a href="Homepage.jsp">Home</a></li>
@@ -99,6 +100,19 @@
             <li><a href="Homepage.jsp">Home</a></li>
         </ul>
     </nav>
+=======
+    <nav>
+        <ul class="nav">
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+            <li><a href="<%= request.getContextPath() %>/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="<%= request.getContextPath() %>/Contact.jsp">Contact</a></li>
+            <li><a href="<%= request.getContextPath() %>/Inventory.jsp">Maintainance</a></li>
+            <li><a href="<%= request.getContextPath() %>/StartLogin.jsp">Logout</a></li>
+            <li><a href="<%= request.getContextPath() %>/Homepage.jsp">Home</a></li>
+        </ul>
+    </nav>
+
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
     <div class="container">
         <h1>Manage Bookings</h1>
         <table>
@@ -115,7 +129,10 @@
             </thead>
             <tbody>
                 <%
+<<<<<<< HEAD
                     // Database connection parameters
+=======
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                     String DB_URL = "jdbc:mysql://localhost:3306/workshopdb";
                     String DB_USERNAME = "root";
                     String DB_PASSWORD = "";
@@ -126,6 +143,7 @@
                     ResultSet rs = null;
 
                     try {
+<<<<<<< HEAD
                         // Load MySQL JDBC Driver
                         Class.forName("com.mysql.cj.jdbc.Driver");
                         // Establish connection
@@ -156,12 +174,42 @@
                                     </form>
                                 </td>
                             </tr>
+=======
+                        Class.forName("com.mysql.cj.jdbc.Driver");
+                        conn = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
+                        stmt = conn.createStatement();
+                        rs = stmt.executeQuery(query);
+
+                        while (rs.next()) {
+                %>
+                    <tr>
+                        <td><%= rs.getInt("booking_id") %></td>
+                        <td><%= rs.getString("car_owner_name") %></td>
+                        <td><%= rs.getString("car_plate_number") %></td>
+                        <td><%= rs.getString("phone") %></td>
+                        <td><%= rs.getString("car_model") %></td>
+                        <td><%= rs.getString("service_type") %></td>
+                        <td>
+                            <form action="<%= request.getContextPath() %>/UpdateBooking.jsp" method="post" style="display:inline;">
+                                <input type="hidden" name="booking_id" value="<%= rs.getInt("booking_id") %>">
+                                <button type="submit">Update</button>
+                            </form>
+                            <form action="<%= request.getContextPath() %>/DeleteBooking.jsp" method="post" style="display:inline;">
+                                <input type="hidden" name="booking_id" value="<%= rs.getInt("booking_id") %>">
+                                <button type="submit">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 <%
                         }
                     } catch (Exception e) {
                         out.println("<tr><td colspan='7'>Error: " + e.getMessage() + "</td></tr>");
                     } finally {
+<<<<<<< HEAD
                         // Close resources
+=======
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                         try {
                             if (rs != null) rs.close();
                             if (stmt != null) stmt.close();

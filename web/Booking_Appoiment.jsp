@@ -120,25 +120,42 @@
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintenance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+=======
+            <li><a href="${pageContext.request.contextPath}/Homepage.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="${pageContext.request.contextPath}/Contact.jsp">Contact</a></li>
+            <li><a href="${pageContext.request.contextPath}/Inventory.jsp">Maintenance</a></li>
+            <li><a href="${pageContext.request.contextPath}/StartLogin.jsp">Logout</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
     <div class="container">
         <div class="note-form">
+<<<<<<< HEAD
             <form action="BookingServlet" method="post">
+=======
+            <form action="${pageContext.request.contextPath}/BookingServlet" method="post">
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 <label for="carOwnerName">Car Owner Name:</label>
                 <input type="text" id="carOwnerName" name="carOwnerName" placeholder="Enter car owner name" required>
                 
                 <label for="carPlateNumber">Car Plate Number:</label>
                 <input type="text" id="carPlateNumber" name="carPlateNumber" placeholder="Enter car plate number" required>
                 
+<<<<<<< HEAD
                 <label for="phone">phone:</label>
                 <input type="text" id ="phone" name="phone" placeholder="Enter contact number" required>
+=======
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone" placeholder="Enter contact number" required>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
                 
                 <label for="carModel">Car Model:</label>
                 <input type="text" id="carModel" name="carModel" placeholder="Enter car model" required>
@@ -189,4 +206,8 @@
         </div>
     </footer>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb

@@ -101,6 +101,7 @@
         <h1>Car Workshop Management System</h1>
     </div>
 
+<<<<<<< HEAD
    
 
     <div class="container">
@@ -134,6 +135,33 @@
 
                     
             </div>
+=======
+    <div class="container">
+        <div class="note-form">
+            <form action="<%= request.getContextPath() %>/RegisterServlet" method="post">
+                <label for="username">Username</label>
+                <input type="text" id="username" name="name" placeholder="Enter username" required>
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="**********" required>
+
+                <label for="phone">Contact Number</label>
+                <input type="text" id="phone" name="phone" placeholder="011" required>
+
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="s@gmail.com" required>
+
+                <label for="registerRole" class="form-label">Role</label>
+                <select class="form-select" id="registerRole" name="role" required>
+                    <option value="" disabled selected>Select your role</option>
+                    <option value="admin">Admin</option>
+                    <option value="customer">Customer</option>
+                    <option value="Mechanic">Mechanic</option>
+                    <option value="Manager">Manager</option>
+                </select>
+
+                <input type="submit" value="Submit">
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
             </form>
         </div>
     </div>

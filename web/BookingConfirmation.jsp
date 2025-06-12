@@ -139,11 +139,19 @@
 
     <nav>
         <ul class="nav">
+<<<<<<< HEAD
             <li><a href="Homepage.jsp">Home</a></li>
             <li><a href="Booking_Appoiment.jsp">Booking</a></li>
             <li><a href="Contact.jsp">Contact</a></li>
             <li><a href="Inventory.jsp">Maintenance</a></li>
             <li><a href="StartLogin.jsp">Logout</a></li>
+=======
+            <li><a href="${pageContext.request.contextPath}/Homepage.jsp">Home</a></li>
+            <li><a href="${pageContext.request.contextPath}/Booking_Appoiment.jsp">Booking</a></li>
+            <li><a href="${pageContext.request.contextPath}/Contact.jsp">Contact</a></li>
+            <li><a href="${pageContext.request.contextPath}/Inventory.jsp">Maintenance</a></li>
+            <li><a href="${pageContext.request.contextPath}/StartLogin.jsp">Logout</a></li>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
         </ul>
     </nav>
 
@@ -161,9 +169,17 @@
             <label>Service Type:</label>
             <p><%= (String)request.getAttribute("serviceType") %></p>
         </div>
+<<<<<<< HEAD
         <div style="text-align: center;">
     <a href="Booking_Appoiment.jsp" class="styled-button">Make Another Booking</a>
 </div>
+=======
+
+        <div style="text-align: center;">
+            <a href="${pageContext.request.contextPath}/Booking_Appoiment.jsp" class="styled-button">Make Another Booking</a>
+        </div>
+    </div>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
 
     <footer>
         <div class="container p-4">
@@ -193,4 +209,8 @@
         </div>
     </footer>
 </body>
+<<<<<<< HEAD
 </html>
+=======
+</html>
+>>>>>>> 5d0de6d4d7afeb8fa9c6d410ccdb3d6db2505fcb
